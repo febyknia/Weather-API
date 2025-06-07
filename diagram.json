@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Cagita Dian A'yunin",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -50, "left": -100, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": -32,
+      "left": 130.4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnNext",
+      "top": 35,
+      "left": -201.6,
+      "attrs": { "color": "green", "label": "Next" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnPrev",
+      "top": -32.2,
+      "left": -201.6,
+      "attrs": { "color": "blue", "label": "Prev" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "lcd:SCL", "esp:D22", "black", [ "h-100", "v-40" ] ],
+    [ "lcd:SDA", "esp:D21", "black", [ "h-90", "v-20" ] ],
+    [ "lcd:VCC", "esp:3V3", "black", [ "h-110", "v60" ] ],
+    [ "lcd:GND", "esp:GND.1", "black", [ "h-130", "v40" ] ],
+    [ "btnNext:1.l", "esp:D18", "green", [ "h-30", "v-20" ] ],
+    [ "btnNext:2.l", "esp:GND.2", "black", [ "h-30", "v20" ] ],
+    [ "btnPrev:1.l", "esp:D19", "green", [ "h-30", "v-20" ] ],
+    [ "btnPrev:2.l", "esp:GND.2", "black", [ "h-30", "v20" ] ]
+  ],
+  "dependencies": {}
+}
